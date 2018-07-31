@@ -1,0 +1,15 @@
+<app-header [language]="language" (newLanguage)="changeLanguage($event)"></app-header>
+<div style="position: relative;
+                    display: inline-block;
+                    align-content: center;
+                margin: 0 auto;
+                    
+z-index: 100;
+top: 200px;">
+<h1 *ngIf='language==="NL"' class="noselect" style="font-size: 100px;">Welkom</h1>
+<h1 *ngIf="language==='EN'" class="noselect" style="font-size: 100px;">Welcome</h1>
+<h1 *ngIf="language==='FR'" class="noselect" style="font-size: 100px;">Bienvenue</h1>
+<h3 *ngIf='language==="NL"' class="noselect">Mijn naam is Defta Daniel en dit is mijn portfoliowebsite. Deze site is gemaakt voor het vak Webapplicaties.</h3>
+<h3 *ngIf="language==='EN'" class="noselect">My name is Daniel Defta and this is my portfolio website. This site was created for the Web Applications class</h3>
+<h3 *ngIf="language==='FR'" class="noselect">Je m'appelle Daniel Defta et ceci est mon site web. Ce site a été créé pour la classe Web Applications.</h3>
+</div>

@@ -1,0 +1,26 @@
+<app-header [language]="language" (newLanguage)="changeLanguage($event)"></app-header>
+<div style="position: relative;
+                    width: 500px;
+                    align-content: center;
+                margin: 0 auto;    
+z-index: 100;
+top: 200px;">
+<form [formGroup]='user' (ngSubmit)='onSubmit()' style="opacity: 0.8" class="ui large segment form {{user.valid?'green':'grey'}}" >
+    <h3 class="ui header">Login</h3>
+    <div class="field">
+      <label for="username">Username:</label>
+      <input type="text" id="username" formControlName='username'>
+    </div>
+    <div class="field">
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName='password'>
+    </div>
+    <div class="ui fluid buttons">
+        <a class="ui blue button" routerLink="/register" >Sign up</a>
+        <div class="or"></div>
+        <button type='submit' [disabled]='!user.valid' class="ui {{user.valid?'positive':'grey'}} button" id='loginbtn'>Log in</button>
+    </div>
+
+  </form>
+  <div *ngIf='errorMsg' class='ui red message'>{{errorMsg}}</div>
+  </div>

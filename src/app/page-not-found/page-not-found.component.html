@@ -1,0 +1,14 @@
+<app-header [language]="language" (newLanguage)="changeLanguage($event)"></app-header>
+<div style="position: relative;
+                    display: inline-block;
+                    align-content: center;
+                margin: 0 auto;
+                    
+z-index: 100;
+top: 200px;">
+<h1 class="noselect" style="font-size: 100px;">404</h1>
+<h3 *ngIf='language==="NL"' class="noselect">Ooops! Deze pagina bestaat niet!</h3>
+<h3 *ngIf="language==='EN'" class="noselect">Ooops! This page doesn't exists!</h3>
+<h3 *ngIf="language==='FR'" class="noselect">Oups! Cette page n'existe pas...</h3>
+<h4 *ngIf="language==='FR'" class="noselect">Il semble que vous vous soyez égaré, car la page que vous cherchez n’existe pas.</h4>
+</div>

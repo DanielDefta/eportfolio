@@ -1,0 +1,47 @@
+<app-header [language]="language" (newLanguage)="changeLanguage($event)"></app-header>
+<div style="position: relative;
+                    width: 500px;
+                    align-content: center;
+                margin: 0 auto;    
+z-index: 100;
+top: 200px;">
+
+<form [formGroup]='user' (ngSubmit)='onSubmit()' style="opacity: 0.8" class="ui large segment form {{user.valid?'green':'grey'}}" >
+    <h3 class="ui header">Register new user</h3>
+    <div class="field">
+      <label for="username">Username:</label>
+      <input type="text" id="username" formControlName='username'>
+      <div class='ui pointing red basic label' *ngIf=' user.get("username").errors?.required && user.get("username").touched'>
+        Username is required
+      </div>
+      <div class='ui pointing red basic label' *ngIf='user.get("username").errors?.minlength && user.get("username").touched'>
+        The username should be at least {{user.get("username").errors?.minlength.requiredLength }} letters
+      </div>
+      <div class='ui pointing red basic label' *ngIf='user.get("username").errors?.userAlreadyExists && user.get("username").touched'>
+        A user with that name already exists
+      </div>
+    </div>
+    <div formGroupName='passwordGroup'>
+      <div class="field">
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName='password'>
+        <div class='ui pointing red basic label' *ngIf=' passwordControl.errors?.passwordTooShort && passwordControl.touched'>
+          Password too short, please use at least {{passwordControl.errors?.passwordTooShort.requiredLength}} letters (got {{passwordControl.errors?.passwordTooShort.actualLength}})
+        </div>
+      </div>
+      <div class="field">
+        <label for="confirmpassword">Confirm password:</label>
+        <input type="password" id="confirmpassword" formControlName='confirmPassword'>
+      </div>
+      <div class='ui pointing red basic label' *ngIf=' user.get("passwordGroup").errors?.passwordsDiffer && user.get("passwordGroup").get("confirmPassword").touched  && user.get("passwordGroup").get("password").touched'>
+       The two passwords should be the same
+      </div>
+    </div>
+    <div class="ui fluid buttons" style="margin-top: 20px;">
+        <a class="ui blue button" routerLink="/login" >Login here</a>
+        <div class="or"></div>
+        <button type='submit' [disabled]='!user.valid' class="ui {{user.valid?'positive':'grey'}} button">Register</button>    
+      </div>
+   
+  </form>
+  </div>

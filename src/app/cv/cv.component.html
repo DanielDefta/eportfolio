@@ -1,0 +1,41 @@
+<app-header [language]="language" (newLanguage)="changeLanguage($event)"></app-header>
+<div style="position: relative;
+            vertical-align: middle;
+            margin-top: 40px;
+            z-index: 100;
+            height: 300px;
+            width: 100%;
+            display:flex;
+            align-items: center;
+            justify-content: center;">
+  <h1 class="noselect" style="font-size: 70px;">CURRICULUM VITAE</h1>
+</div>
+
+<div class="container" style="text-align: left; min-height: calc(100% - 390px);">
+  <div class="ui segment" style="opacity: 0.9; margin-bottom: 25px;" *ngFor="let map of cv._cv.get(language).entries()">
+      <h2>{{map[0]}}</h2>
+      <div style="height:10px; "></div>
+
+      <div style="margin:0 -15px; ">
+        <table class="wsite-multicol-table ">
+          <tbody>
+            <tr *ngFor="let entry of cv._cv.get(language).get(map[0]).entries()">
+              <td style="width:24.141414141414%; padding:0 15px; ">
+                <div class="paragraph">
+                  <strong>{{entry[0]}}</strong>
+                </div>
+              </td>
+              <td style="width:auto; padding:0 15px; " *ngFor="let en of entry[1]">
+                <div class="paragraph ">&#8203;{{en}}&#8203;</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+
+
+  <div>
+    <div style="height: 50px; overflow: hidden; width: 100%; "></div>
+  </div>
+</div>
