@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { LanguageService } from './services/language.service';
 
 @Component({
@@ -9,7 +9,19 @@ import { LanguageService } from './services/language.service';
 export class AppComponent {
   title = 'eportfolio';
 
-  constructor(){
+  @Input() public language: string="";
+
+  constructor(private languageService: LanguageService) { }
+  ngOnInit() {
+    this.languageService.language.subscribe(
+      data => {
+        this.language = data;
+      }
+    );
   }
 
+  changeLanguage(lg){
+    this.language = lg;
+    this.languageService.setLanguage(lg);
+  }
 }

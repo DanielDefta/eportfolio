@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,14 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Input() public language: string="";
   @Output() public newLanguage = new EventEmitter<string>();
-  constructor() { }
+  constructor(private languageService:LanguageService) { }
 
   ngOnInit() {
+    this.languageService.language.subscribe(
+      data => {
+        this.language = data;
+      }
+    );
   }
 
   changeLanguage(param:string){

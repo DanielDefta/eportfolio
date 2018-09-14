@@ -1,18 +1,24 @@
 import { Injectable } from '@angular/core';
+import { Observable, BehaviorSubject } from '../../../node_modules/rxjs';
 
 @Injectable()
 export class LanguageService {
 
-  constructor() { }
+  private languageSource = new BehaviorSubject(null);
+  language = this.languageSource.asObservable();
 
-  savelanguage(language:string){
-    localStorage.setItem("lg", language);
+  constructor() { 
+    if(localStorage.getItem("lg"))
+    {
+      this.setLanguage(localStorage.getItem("lg"));
+    }
+    else {
+      this.setLanguage('NL');
+    }
   }
 
-  getLanguage(): string{
-    if(localStorage.getItem("lg") === null || localStorage.getItem("lg") === ""){
-      localStorage.setItem("lg",'NL');
-    }
-    return localStorage.getItem("lg");
+  setLanguage(language:string){
+    localStorage.setItem("lg",language);
+    this.languageSource.next(language);
   }
 }

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<!-- <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
       <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -55,6 +55,143 @@
               <li class="{{language==='FR'?'active':''}}"><a style="cursor: pointer;" (click)="changeLanguage('FR')">FR</a></li>
           </ul>
       </div>
-      <!--/.nav-collapse -->
+    
   </div>
-</nav>
+</nav> -->
+
+<div class="ui page grid">
+    <div class="computer only row">
+        <div class="ui fixed menu navbar grid">
+            <div class="item">
+                <a href="https://www.hogent.be">
+                    <img style="height: 40px" src="../../assets/img/HoGent_Logo.png">
+                </a>
+            </div>
+            <div class="header item">Portfolio Daniel Defta</div>
+
+            <div class="right menu">
+                <a *ngIf="language==='NL'" class="item" routerLinkActive='active' routerLink="/home">Home</a>
+                <a *ngIf="language==='NL'" class="item" routerLinkActive='active' routerLink="/cv">CV</a>
+                <a *ngIf="language==='NL'" class="item" routerLinkActive='active' routerLink="/over-mij">Over mij</a>
+                <a *ngIf="language==='NL'" class="item" routerLinkActive='active' routerLink="/hobbys">Hobby's</a>
+                <a *ngIf="language==='NL'" class="item" routerLinkActive='active' routerLink="/portfolio">Portofolio</a>
+                <a *ngIf="language==='NL'" class="item" routerLinkActive='active' routerLink="/italent">iTalent</a>
+                <a *ngIf="language==='NL'" class="item" routerLinkActive='active' routerLink="/links">Links</a>
+                <a *ngIf="language==='NL'" class="item" routerLinkActive='active' routerLink="/contact">Contact</a>
+
+                <a *ngIf="language==='EN'" class="item" routerLinkActive='active' routerLink="/home">Home</a>
+                <a *ngIf="language==='EN'" class="item" routerLinkActive='active' routerLink="/cv">CV</a>
+                <a *ngIf="language==='EN'" class="item" routerLinkActive='active' routerLink="/over-mij">About me</a>
+                <a *ngIf="language==='EN'" class="item" routerLinkActive='active' routerLink="/hobbys">Hobby's</a>
+                <a *ngIf="language==='EN'" class="item" routerLinkActive='active' routerLink="/portfolio">Portofolio</a>
+                <a *ngIf="language==='EN'" class="item" routerLinkActive='active' routerLink="/italent">iTalent</a>
+                <a *ngIf="language==='EN'" class="item" routerLinkActive='active' routerLink="/links">Links</a>
+                <a *ngIf="language==='EN'" class="item" routerLinkActive='active' routerLink="/contact">Contact</a>
+
+                <a *ngIf="language==='FR'" class="item" routerLinkActive='active' routerLink="/home">Accueil</a>
+                <a *ngIf="language==='FR'" class="item" routerLinkActive='active' routerLink="/cv">CV</a>
+                <a *ngIf="language==='FR'" class="item" routerLinkActive='active' routerLink="/over-mij">A propos de moi</a>
+                <a *ngIf="language==='FR'" class="item" routerLinkActive='active' routerLink="/hobbys">Hobby's</a>
+                <a *ngIf="language==='FR'" class="item" routerLinkActive='active' routerLink="/portfolio">Portofolio</a>
+                <a *ngIf="language==='FR'" class="item" routerLinkActive='active' routerLink="/italent">iTalent</a>
+                <a *ngIf="language==='FR'" class="item" routerLinkActive='active' routerLink="/links">Links</a>
+                <a *ngIf="language==='FR'" class="item" routerLinkActive='active' routerLink="/contact">Contact</a>
+
+
+                <div class="ui teal buttons item">
+                    <div class="ui button">{{language}}
+                    </div>
+
+                    <div class="ui floating dropdown icon button">
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <div class="item" (click)="changeLanguage('NL')">NL</div>
+                            <div class="item" (click)="changeLanguage('EN')">EN</div>
+                            <div class="item" (click)="changeLanguage('FR')">FR</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mobile tablet only row" style="margin-right: 15px;
+    margin-left: 15px;">
+        <div class="ui fixed navbar menu grid">
+            <div class="item">
+                <a href="https://www.hogent.be">
+                    <img style="height: 40px" src="../../assets/img/HoGent_Logo.png">
+                </a>
+            </div>
+            <div class="header item">Portfolio Daniel Defta</div>
+
+
+            <div class="ui teal buttons item right">
+
+                <div class="ui floating dropdown item">
+                    <i class="reorder icon"></i>
+                    <div class="ui vertical center aligned menu" style="display: none;
+                        border: 0px;
+                        left: 100% !important;
+                        margin-left: calc(-100vw + 23px) !important;
+                        width: 100vw !important;
+                        border-radius: 0px !important;
+                        border-bottom-left-radius: 5px!important;
+                        border-bottom-right-radius: 5px!important;
+                        border-top: 1px;
+                        padding-top:10px!important;
+                        margin-top: 15.01px!important;">
+
+                        <a *ngIf="language==='NL'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/home">Home</a>
+                        <a *ngIf="language==='NL'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/cv">CV</a>
+                        <a *ngIf="language==='NL'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/over-mij">Over mij</a>
+                        <a *ngIf="language==='NL'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/hobbys">Hobby's</a>
+                        <a *ngIf="language==='NL'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/portfolio">Portofolio</a>
+                        <a *ngIf="language==='NL'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/italent">iTalent</a>
+                        <a *ngIf="language==='NL'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/links">Links</a>
+                        <a *ngIf="language==='NL'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/contact">Contact</a>
+
+                        <a *ngIf="language==='EN'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/home">Home</a>
+                        <a *ngIf="language==='EN'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/cv">CV</a>
+                        <a *ngIf="language==='EN'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/over-mij">About me</a>
+                        <a *ngIf="language==='EN'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/hobbys">Hobby's</a>
+                        <a *ngIf="language==='EN'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/portfolio">Portofolio</a>
+                        <a *ngIf="language==='EN'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/italent">iTalent</a>
+                        <a *ngIf="language==='EN'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/links">Links</a>
+                        <a *ngIf="language==='EN'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/contact">Contact</a>
+
+                        <a *ngIf="language==='FR'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/home">Accueil</a>
+                        <a *ngIf="language==='FR'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/cv">CV</a>
+                        <a *ngIf="language==='FR'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/over-mij">A propos de moi</a>
+                        <a *ngIf="language==='FR'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/hobbys">Hobby's</a>
+                        <a *ngIf="language==='FR'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/portfolio">Portofolio</a>
+                        <a *ngIf="language==='FR'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/italent">iTalent</a>
+                        <a *ngIf="language==='FR'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/links">Links</a>
+                        <a *ngIf="language==='FR'" style="text-align: center" class="item" routerLinkActive='active' routerLink="/contact">Contact</a>
+                        <div class="ui grid" style="margin-top: 5px;">
+                            <div class="ui five column row">
+                                <div class="column"></div>
+                                <div class="column">
+                                    <div class="item" style="text-align: center" (click)="changeLanguage('NL')">NL</div>
+                                </div>
+                                <div class="column">
+                                    <div class="item" style="text-align: center" (click)="changeLanguage('EN')">EN</div>
+                                </div>
+                                <div class="column">
+                                    <div class="item" style="text-align: center" (click)="changeLanguage('FR')">FR</div>
+                                </div>
+                                <div class="column"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

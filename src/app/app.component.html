@@ -8,7 +8,7 @@
                                                     right: 0;
                                                     z-index: -1;">
 </canvas>
-
+<app-header [language]="language" (newLanguage)="changeLanguage($event)"></app-header>
 <router-outlet></router-outlet>
 
 <app-footer></app-footer>

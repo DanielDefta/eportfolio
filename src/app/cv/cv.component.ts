@@ -7,14 +7,14 @@ import { CvDataService } from '../services/dataServices/CvDataService';
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
-  styleUrls: ['./cv.component.css'],
+  styleUrls: ['./cv.component.css']//,
   
-  animations:[slideRightLeftAnimation],
-    
-        host: { '[@slideRightLeftAnimation]':''}
+  // animations:[slideRightLeftAnimation],
+  //  
+  //      host: { '[@slideRightLeftAnimation]':''}
 })
 export class CvComponent implements OnInit {
-  @Input() public language: string="";
+  language: string="";
 
   private cv:CV = new CV();
 
@@ -22,12 +22,12 @@ export class CvComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.language = this.languageService.getLanguage();
+    this.languageService.language.subscribe(
+      data => {
+        console.log(data);
+        this.language = data;
+      }
+    );
   }
-
-  changeLanguage(lg){
-    console.log(lg);
-    this.language = lg;
-    this.languageService.savelanguage(lg);
-  }
+  
 }

@@ -31,7 +31,7 @@ function comparePasswords(control: AbstractControl): { [key: string]: any } {
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  @Input() public language: string="";
+  language: string="";
   public user: FormGroup;
 
   get passwordControl(): FormControl {
@@ -41,7 +41,11 @@ export class RegisterComponent implements OnInit {
   constructor(private languageService: LanguageService, private authenticationService: AuthenticationService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.language = this.languageService.getLanguage();
+    this.languageService.language.subscribe(
+      data => {
+        this.language = data;
+      }
+    );
     this.user = this.fb.group({
       username: ['', [Validators.required, usernameValidator(4)], this.serverSideValidateUsername()],
       passwordGroup: this.fb.group({
@@ -68,12 +72,6 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/home']);
       }
     });
-  }
-
-  changeLanguage(lg){
-    console.log(lg);
-    this.language = lg;
-    this.languageService.savelanguage(lg);
   }
 }
 

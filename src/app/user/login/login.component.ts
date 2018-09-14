@@ -18,14 +18,18 @@ function passwordValidator(): ValidatorFn {
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  @Input() public language: string="";
+  language: string="";
   public user: FormGroup;
   public errorMsg: string;
 
   constructor(private languageService: LanguageService, private authService: AuthenticationService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.language = this.languageService.getLanguage();
+    this.languageService.language.subscribe(
+      data => {
+        this.language = data;
+      }
+    );
     this.user = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -47,11 +51,5 @@ export class LoginComponent implements OnInit {
         }
       }, 
       err => this.errorMsg = err.json().message);
-  }
-
-  changeLanguage(lg){
-    console.log(lg);
-    this.language = lg;
-    this.languageService.savelanguage(lg);
   }
 }
